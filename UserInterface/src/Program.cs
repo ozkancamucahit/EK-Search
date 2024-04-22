@@ -1,6 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using E_Search.UI.Models;
 using E_Search.UI.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
