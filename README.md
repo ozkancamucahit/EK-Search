@@ -14,7 +14,7 @@ UI side uses javascript for scraping. Multi thread requests download information
 **Cloning the Repository**
 
 ```bash
-git clone 
+git clone https://github.com/ozkancamucahit/EK-Search.git
 cd Ek-Search
 ```
 
@@ -23,6 +23,7 @@ cd Ek-Search
 Install the project dependencies using npm:
 
 ```bash
+cd Scraper
 npm i
 ```
 Run scraping code which uses JavaScript
