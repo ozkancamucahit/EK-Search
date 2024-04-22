@@ -1,0 +1,115 @@
+﻿@page
+@model E_Search.UI.Pages.News.IndexModel
+
+@{
+    ViewData["Title"] = "Search News";
+}
+
+@section Header {
+
+    <!-- Header START-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap5.min.css" />
+
+
+    <!-- Header END-->
+}
+
+<h1>Search in news</h1>
+
+
+<form method="post">
+    <p>
+        Keyword:
+        <input type="text" asp-for="ArticleBody" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
+<div class="cards-container col-12 d-flex flex-column">
+    @foreach (var item in Model.News)
+    {
+        <div class="card">
+            <div class="row row-cols-2 card-title justify-content-between">
+                <div class="col-9">
+                    <span class="card-title-content">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </span>
+                </div>
+                
+                <div class="col-3 d-flex justify-content-end">
+                    <span class="card-title-content pe-4 text-decoration-underline h5">
+                        Yayınlanma Tarihi:
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </span>
+                </div>
+                
+            
+            </div>
+            <div class="row card-summary">
+                <div class="card-summary-content">
+                    @Html.DisplayFor(modelItem => item.Summary)
+                </div>
+            </div>
+            <div class="row card-body">
+                <div class="card-body-content">
+                    @Html.DisplayFor(modelItem => item.ArticleBody)
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.News[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.News[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.News[0].Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.News[0].ArticleBody)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.News)
+        {
+            <tr>
+                <td>
+                   @Html.DisplayFor(modelItem => item.TitleDisplay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SummaryDisplay)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArticleBodyDisplay)
+
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> *@
+
+@section Scripts {
+
+    <!-- SCRIPTS START-->
+    <!-- SCRIPTS END-->
+}
