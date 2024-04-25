@@ -3,9 +3,12 @@
 
 @{
     ViewData["Title"] = "Search News";
+    int idx = 1;
 }
 
 <h1>Search in news</h1>
+
+<div class="d-flex justify-content-between">
 
 
 <form method="post">
@@ -16,6 +19,12 @@
     </p>
 </form>
 
+    @if (Model.News.Count > 0)
+    {
+        <p class="text-danger h4">@Model.News.Count news listed</p>
+    }
+</div>
+
 
 <div class="cards-container col-12 d-flex flex-column">
     @foreach (var item in Model.News)
@@ -24,7 +33,7 @@
             <div class="row row-cols-2 card-title justify-content-between">
                 <div class="col-9">
                     <span class="card-title-content">
-                        @Html.DisplayFor(modelItem => item.Title)
+                        <b>@idx</b>   @Html.DisplayFor(modelItem => item.Title)
                     </span>
                 </div>
                 
@@ -49,6 +58,7 @@
             </div>
 
         </div>
+        idx++;
     }
 
 </div>

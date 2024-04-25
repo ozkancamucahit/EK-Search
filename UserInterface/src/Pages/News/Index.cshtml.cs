@@ -35,7 +35,6 @@ public class IndexModel : PageModel
     public IList<NewsEntity> News { get; set; } =  new List<NewsEntity>();
 
 
-
     public async Task OnPostAsync()
     {
         if(!String.IsNullOrWhiteSpace(ArticleBody))
